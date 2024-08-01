@@ -81,3 +81,7 @@ func TestBubbleSort(t *testing.T) {
 func TestInsertionSort(t *testing.T) {
 	testFramework(t, sort.InsertionSort)
 }
+
+func TestCocktailSort(t *testing.T) {
+	testFramework(t, sort.CocktailSort)
+}
