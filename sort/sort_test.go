@@ -89,3 +89,7 @@ func TestCocktailSort(t *testing.T) {
 func TestOddevenSort(t *testing.T) {
 	testFramework(t, sort.OddevenSort)
 }
+
+func TestCombSort(t *testing.T) {
+	testFramework(t, sort.CombSort)
+}
