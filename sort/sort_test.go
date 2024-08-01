@@ -78,16 +78,8 @@ func TestBubbleSort(t *testing.T) {
 	testFramework(t, sort.BubbleSort)
 }
 
-func TestInsertionSort(t *testing.T) {
-	testFramework(t, sort.InsertionSort)
-}
-
 func TestCocktailSort(t *testing.T) {
 	testFramework(t, sort.CocktailSort)
-}
-
-func TestOddevenSort(t *testing.T) {
-	testFramework(t, sort.OddevenSort)
 }
 
 func TestCombSort(t *testing.T) {
@@ -96,4 +88,12 @@ func TestCombSort(t *testing.T) {
 
 func TestGnomeSort(t *testing.T) {
 	testFramework(t, sort.GnomeSort)
+}
+
+func TestInsertionSort(t *testing.T) {
+	testFramework(t, sort.InsertionSort)
+}
+
+func TestOddevenSort(t *testing.T) {
+	testFramework(t, sort.OddevenSort)
 }
