@@ -109,3 +109,7 @@ func TestQuickSort(t *testing.T) {
 func TestSelectionSort(t *testing.T) {
 	testFramework(t, sort.SelectionSort)
 }
+
+func TestShellSort(t *testing.T) {
+	testFramework(t, sort.ShellSort)
+}
