@@ -90,6 +90,10 @@ func TestGnomeSort(t *testing.T) {
 	testFramework(t, sort.GnomeSort)
 }
 
+func TestHeapSort(t *testing.T) {
+	testFramework(t, sort.HeapSort)
+}
+
 func TestInsertionSort(t *testing.T) {
 	testFramework(t, sort.InsertionSort)
 }
