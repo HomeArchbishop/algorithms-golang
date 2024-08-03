@@ -97,3 +97,7 @@ func TestInsertionSort(t *testing.T) {
 func TestOddevenSort(t *testing.T) {
 	testFramework(t, sort.OddevenSort)
 }
+
+func TestQuickSort(t *testing.T) {
+	testFramework(t, sort.QuickSort)
+}
