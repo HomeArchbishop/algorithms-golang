@@ -98,6 +98,10 @@ func TestInsertionSort(t *testing.T) {
 	testFramework(t, sort.InsertionSort)
 }
 
+func TestMergeSort(t *testing.T) {
+	testFramework(t, sort.MergeSort)
+}
+
 func TestOddevenSort(t *testing.T) {
 	testFramework(t, sort.OddevenSort)
 }
