@@ -106,6 +106,10 @@ func TestOddevenSort(t *testing.T) {
 	testFramework(t, sort.OddevenSort)
 }
 
+func TestPatienceSort(t *testing.T) {
+	testFramework(t, sort.PatienceSort)
+}
+
 func TestQuickSort(t *testing.T) {
 	testFramework(t, sort.QuickSort)
 }
