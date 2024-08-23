@@ -1,8 +1,13 @@
 package graph
 
 type Graph struct {
+	vertices int
 	edges    map[int]map[int]int
 	Directed bool
+}
+
+func NewGraph(num int) *Graph {
+	return &Graph{vertices: num}
 }
 
 func (g *Graph) AddVertex(v int) {

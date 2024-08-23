@@ -1,4 +1,4 @@
-// Modified from: https://github.com/TheAlgorithms/Go/blob/master/graph/graph_test.go
+// Tests for directed and undirected graphs
 
 package graph
 
@@ -8,14 +8,16 @@ import (
 )
 
 var graphTestCases = []struct {
-	name  string
-	edges [][]int
+	name     string
+	edges    [][]int
+	vertices int
 }{
 	{
 		"single edge",
 		[][]int{
 			{0, 1, 1},
 		},
+		2,
 	},
 	{
 		"many edges",
@@ -29,6 +31,7 @@ var graphTestCases = []struct {
 			{7, 8, 2},
 			{8, 9, 2},
 		},
+		10,
 	},
 	{
 		"cycles",
@@ -39,6 +42,7 @@ var graphTestCases = []struct {
 			{3, 4, 3},
 			{4, 2, 1},
 		},
+		5,
 	},
 	{
 		"disconnected graphs",
@@ -47,15 +51,18 @@ var graphTestCases = []struct {
 			{2, 4, 5},
 			{3, 8, 5},
 		},
+		2,
 	},
 }
 
 func TestDirectedGraph(t *testing.T) {
+
 	// Testing self-loops separately only for directed graphs.
 	// For undirected graphs each edge already creates a self-loop.
 	directedGraphTestCases := append(graphTestCases, struct {
-		name  string
-		edges [][]int
+		name     string
+		edges    [][]int
+		vertices int
 	}{
 		"self-loops",
 		[][]int{
@@ -63,17 +70,21 @@ func TestDirectedGraph(t *testing.T) {
 			{1, 2, 2},
 			{2, 1, 3},
 		},
+		3,
 	})
 
 	for _, test := range directedGraphTestCases {
 		t.Run(fmt.Sprint(test.name), func(t *testing.T) {
 			// Initializing graph, adding edges
-			graph := Graph{}
+			graph := NewGraph(test.vertices)
 			graph.Directed = true
 			for _, edge := range test.edges {
 				graph.AddWeightedEdge(edge[0], edge[1], edge[2])
 			}
 
+			if graph.vertices != test.vertices {
+				t.Errorf("Number of vertices, Expected: %d, Computed: %d", test.vertices, graph.vertices)
+			}
 			edgeCount := 0
 			for _, e := range graph.edges {
 				edgeCount += len(e)
@@ -91,14 +102,18 @@ func TestDirectedGraph(t *testing.T) {
 }
 
 func TestUndirectedGraph(t *testing.T) {
+
 	for _, test := range graphTestCases {
 		t.Run(fmt.Sprint(test.name), func(t *testing.T) {
 			// Initializing graph, adding edges
-			graph := Graph{}
+			graph := NewGraph(test.vertices)
 			for _, edge := range test.edges {
 				graph.AddWeightedEdge(edge[0], edge[1], edge[2])
 			}
 
+			if graph.vertices != test.vertices {
+				t.Errorf("Number of vertices, Expected: %d, Computed: %d", test.vertices, graph.vertices)
+			}
 			edgeCount := 0
 			for _, e := range graph.edges {
 				edgeCount += len(e)
