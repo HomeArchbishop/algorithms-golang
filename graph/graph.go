@@ -1,10 +1,14 @@
 package graph
 
+import "math"
+
 type Graph struct {
 	vertices int
 	edges    map[int]map[int]int
 	Directed bool
 }
+
+var Inf = math.Inf(1)
 
 func NewGraph(num int) *Graph {
 	return &Graph{vertices: num}
